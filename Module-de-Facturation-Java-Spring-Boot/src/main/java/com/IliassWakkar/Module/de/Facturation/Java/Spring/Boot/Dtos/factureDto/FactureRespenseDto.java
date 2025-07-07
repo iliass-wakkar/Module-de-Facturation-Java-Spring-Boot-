@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public record FactureRespenseDto(
+
+        Long id,
         @NotNull
         LocalDate Date,
         @NotNull
@@ -43,6 +45,7 @@ public record FactureRespenseDto(
         }
         Double totalTTC = totalHT + totalTVA;
         return new FactureRespenseDto(
+                facture.getId(),
                 facture.getDate(),
                 facture.getClient(),
                 facture.getLigneFactures(),

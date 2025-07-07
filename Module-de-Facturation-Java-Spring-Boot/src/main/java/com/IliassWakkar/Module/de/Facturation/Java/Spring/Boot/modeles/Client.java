@@ -1,6 +1,7 @@
 package com.IliassWakkar.Module.de.Facturation.Java.Spring.Boot.modeles;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -29,6 +30,7 @@ public class Client {
     private LocalDate dateDeCreation;
 
     //chaque client a plusier facture
+    @JsonIgnore
     @OneToMany(mappedBy ="client", cascade = CascadeType.ALL)
     private List<Facture> factures;
 

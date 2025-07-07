@@ -24,11 +24,11 @@ public class LigneFacture {
     @NotNull
     private Double tauxDeTVA;
 
-//    //chaque ligne de facture a une seul factur
-//    @ManyToOne
-//    @JoinColumn(name = "facture_id")
-//    @JsonBackReference
-//    private Facture facture;
+    //chaque ligne de facture a une seul factur
+    @ManyToOne
+    @JoinColumn(name = "facture_id")
+    @JsonBackReference
+    private Facture facture;
 
     //constricteurs
     public LigneFacture(Long id, String description, Integer quantite, Double prixUnitaireHT, Double tauxDeTVA, Facture facture) {
@@ -37,7 +37,7 @@ public class LigneFacture {
         this.quantite = quantite;
         this.prixUnitaireHT = prixUnitaireHT;
         this.tauxDeTVA = tauxDeTVA;
-//        this.facture = facture;
+        this.facture = facture;
     }
 
     public LigneFacture() {
@@ -82,12 +82,12 @@ public class LigneFacture {
         this.tauxDeTVA = tauxDeTVA;
     }
 
-//    public Facture getFacture() {
-//        return facture;
-//    }
-//
-//    public void setFacture(Facture facture) {
-//        this.facture = facture;
-//    }
+    public Facture getFacture() {
+        return facture;
+    }
+
+    public void setFacture(Facture facture) {
+        this.facture = facture;
+    }
 }
 

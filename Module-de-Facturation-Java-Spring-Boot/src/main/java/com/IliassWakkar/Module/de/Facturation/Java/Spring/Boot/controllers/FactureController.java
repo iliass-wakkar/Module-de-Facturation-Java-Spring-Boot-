@@ -23,7 +23,7 @@ public class FactureController {
             if(facture == null)
                 return ResponseEntity.badRequest().body("message : facture est vide");
             Facture neveauxFacture =factureService.creerFacture(facture);
-            return ResponseEntity.ok().body(neveauxFacture);
+            return ResponseEntity.ok().body(FactureRespenseDto.fullFacture(neveauxFacture));
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
