@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "ef263533-2f09-4794-9415-585d0bd595d5",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40629169"
+	},
+	"item": [
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "Get Clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlBase}}clients",
+							"host": [
+								"{{urlBase}}clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Client",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Creer Client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nom\": \"Entreprise Dupont\",\r\n  \"email\": \"contact@dupont.com\",\r\n  \"siret\": \"12345678901234\",\r\n  \"dateDeCreation\": \"2025-07-07\"\r\n  }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlBase}}client",
+							"host": [
+								"{{urlBase}}client"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Facture",
+			"item": [
+				{
+					"name": "creer facture",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"clientId\": 1,\r\n  \"date\": \"2025-07-06\",\r\n  \"ligneFactures\": [\r\n    {\r\n      \"description\": \"Développement Backend\",\r\n      \"quantite\": 3,\r\n      \"prixUnitaireHT\": 100.0,\r\n      \"tauxDeTVA\": 20.0\r\n    },\r\n    {\r\n      \"description\": \"Design UI/UX\",\r\n      \"quantite\": 2,\r\n      \"prixUnitaireHT\": 80.0,\r\n      \"tauxDeTVA\": 5.5\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlBase}}facture",
+							"host": [
+								"{{urlBase}}facture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lister Factures",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlBase}}factures",
+							"host": [
+								"{{urlBase}}factures"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "urlBase",
+			"value": "http://localhost:8080/api/",
+			"type": "default"
+		}
+	]
+}
