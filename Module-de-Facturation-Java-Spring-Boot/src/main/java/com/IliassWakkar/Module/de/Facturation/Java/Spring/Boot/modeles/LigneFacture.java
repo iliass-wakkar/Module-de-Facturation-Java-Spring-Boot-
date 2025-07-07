@@ -1,6 +1,7 @@
 package com.IliassWakkar.Module.de.Facturation.Java.Spring.Boot.modeles;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.persistence.GeneratedValue;
 import jakarta.validation.constraints.NotBlank;
@@ -15,7 +16,7 @@ public class LigneFacture {
     private String description;
 
     @NotNull
-    private Integer quantité;
+    private Integer quantite;
 
     @NotNull
     private Double prixUnitaireHT;
@@ -23,19 +24,20 @@ public class LigneFacture {
     @NotNull
     private Double tauxDeTVA;
 
-    //chaque ligne de facture a une seul factur
-    @ManyToOne
-    @JoinColumn(name = "factureId")
-    private Facture facture;
+//    //chaque ligne de facture a une seul factur
+//    @ManyToOne
+//    @JoinColumn(name = "facture_id")
+//    @JsonBackReference
+//    private Facture facture;
 
     //constricteurs
-    public LigneFacture(Long id, String description, Integer quantité, Double prixUnitaireHT, Double tauxDeTVA, Facture facture) {
+    public LigneFacture(Long id, String description, Integer quantite, Double prixUnitaireHT, Double tauxDeTVA, Facture facture) {
         this.id = id;
         this.description = description;
-        this.quantité = quantité;
+        this.quantite = quantite;
         this.prixUnitaireHT = prixUnitaireHT;
         this.tauxDeTVA = tauxDeTVA;
-        this.facture = facture;
+//        this.facture = facture;
     }
 
     public LigneFacture() {
@@ -56,12 +58,12 @@ public class LigneFacture {
         this.description = description;
     }
 
-    public Integer getQuantité() {
-        return quantité;
+    public Integer getQuantite() {
+        return quantite;
     }
 
-    public void setQuantité(Integer quantité) {
-        this.quantité = quantité;
+    public void setQuantite(Integer quantité) {
+        this.quantite = quantité;
     }
 
     public Double getPrixUnitaireHT() {
@@ -80,12 +82,12 @@ public class LigneFacture {
         this.tauxDeTVA = tauxDeTVA;
     }
 
-    public Facture getFacture() {
-        return facture;
-    }
-
-    public void setFacture(Facture facture) {
-        this.facture = facture;
-    }
+//    public Facture getFacture() {
+//        return facture;
+//    }
+//
+//    public void setFacture(Facture facture) {
+//        this.facture = facture;
+//    }
 }
 

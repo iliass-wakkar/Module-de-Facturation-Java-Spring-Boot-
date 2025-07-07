@@ -1,6 +1,7 @@
 package com.IliassWakkar.Module.de.Facturation.Java.Spring.Boot.controllers;
 
 
+import com.IliassWakkar.Module.de.Facturation.Java.Spring.Boot.Dtos.clientDto.ClientRequestDTO;
 import com.IliassWakkar.Module.de.Facturation.Java.Spring.Boot.modeles.Client;
 import com.IliassWakkar.Module.de.Facturation.Java.Spring.Boot.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,10 @@ public class ClientController {
 
     //pour cree client endpoint http://localhost:8080/api/client
     @PostMapping("/client")
-    public ResponseEntity<?> creeClient(@RequestBody Client client){
+    public ResponseEntity<?> creeClient(@RequestBody ClientRequestDTO requestDTO){
         try{
-            if(client == null) return ResponseEntity.badRequest().body("massage: vide client");
-            Client clientSouvgarder = clientService.creerClient(client);
+            if(requestDTO == null) return ResponseEntity.badRequest().body("massage: vide client");
+            Client clientSouvgarder = clientService.creerClient(requestDTO);
             return ResponseEntity.ok().body(clientSouvgarder);
         }catch(Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
